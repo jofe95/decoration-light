@@ -1,9 +1,10 @@
-; File:		decoLightPowerSupply\irRxPulseDistance.cfg.asm
-; Device:	AVR
-; Created:	2023
-; Version:	2024-04-15
-; Author:	Johannes Fechner
-;			https://www.mikrocontroller.net/user/show/jofe
+; File:     irrxpd-cfg.asm
+; Device:   AVR
+; Created:  2023
+; Version:  2024-04-25
+; Author:   Johannes Fechner
+;           https://4n7.de/
+;           https://github.com/jofe95
 
 ; == Implemented IR codes ==
 ; Currently implemented IR codes, values following <https://www.mikrocontroller.net/articles/IRMP>:
@@ -11,7 +12,7 @@
 .equ IR_KASEIKYO = 5
 .equ IR_SAMSUNG32 = 10
 .equ IR_ONKYO = 56
-.equ IR_NEC_EXT = 59		; Not defined by IRMP.
+.equ IR_NEC_EXT = 59        ; Not defined by IRMP.
 
 ; == Configuration ==
 ; Choose the IR protocol to be received from the list "Implemented IR codes" above:
@@ -35,6 +36,3 @@
 
 ; Set the denominator of the IR timer prescaler:
 .equ IR_TIMER_PRESC = 1
-
-; Set the following symbol to 1 if the module irRxPulseDinstance.asm shall include the ir_isr routine:
-.equ IR_INCLUDE_ISR = 0
