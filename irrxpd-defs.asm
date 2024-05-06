@@ -1,5 +1,9 @@
-; File:		irRxPulseDistance.defs.asm
-; Version:	2024-01-15
+; File:     irrxpd-defs.asm
+; Device:   AVR
+; Version:  2024-04-25
+; Author:   Johannes Fechner
+;           https://4n7.de/
+;           https://github.com/jofe95
 
 ; == The register ir_status ==
 ; Bit positions are assigned as follows:
@@ -88,7 +92,7 @@
 #define IR_TIMER_OCR ROUND(F_CPU*IR_SET_DIST*(1.0e-6)/IR_TIMER_PRESC-1)
 ; Calculate the resulting time distance between IR interrupts in microseconds (us):
 #define IR_REAL_DIST (1.0e6*IR_TIMER_PRESC*(IR_TIMER_OCR+1)/F_CPU)
-; Calculate the approximate ISR	call counts of time constants (T is time in microseconds):
+; Calculate the approximate ISR call counts of time constants (T is time in microseconds):
 #define IR_MIN_CALLS(T) ROUND((100.0-IR_TOLERANCE)*(T)/IR_REAL_DIST/100.0)
 #define IR_MAX_CALLS(T) ROUND((100.0+IR_TOLERANCE)*(T)/IR_REAL_DIST/100.0)
 
